@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Professional ESL Educator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c5f7f;
+            --secondary-color: #e8b86d;
+            --accent-color: #f4f4f4;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3a4a 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--text-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--accent-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .objective-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-color);
+            margin-top: 2rem;
+        }
+
+        .objective-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Experience & Education */
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .timeline-section h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-item {
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .timeline-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .institution {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Booking Section */
+        .booking {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3a4a 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .booking .section-title {
+            color: var(--white);
+        }
+
+        .booking .section-title::after {
+            background: var(--secondary-color);
+        }
+
+        .booking-info {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+        }
+
+        .booking-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .availability {
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            width: 30px;
+        }
+
+        .contact-form {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .timeline,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Your Name</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#booking">Book a Class</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Transform Your English Skills</h1>
+        <p class="tagline">Personalized ESL Instruction for Adult Learners | 8+ Years Experience</p>
+        <div class="cta-buttons">
+            <a href="#booking" class="btn btn-primary">Book a Trial Class</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Passionate about helping you achieve your English language goals</p>
+        
+        <div class="about-content">
+            <div class="about-image">
+                <img src="your-photo.jpg" alt="Your Name - ESL Educator">
+            </div>
+            <div class="about-text">
+                <h3>Your Dedicated ESL Educator</h3>
+                <p>A passionate ESL educator with over 8 years of experience teaching adult learners from diverse cultural and linguistic backgrounds. I specialize in creating learner-centered lessons that develop confidence, fluency, and practical communication skills.</p>
+                <p>Through personalized instruction, contextualized learning, and strong pedagogical foundations, I help learners achieve their academic, professional, and personal English language goals.</p>
+                
+                <div class="objective-box">
+                    <h4><i class="fas fa-bullseye"></i> My Objective</h4>
+                    <p>To empower adult English learners through engaging, personalized, and communicative language instruction while contributing my expertise in curriculum development, learner-centered pedagogy, and effective online teaching to a dynamic educational organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">What I Offer</h2>
+        <p class="section-subtitle">Comprehensive English language instruction tailored to your needs</p>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-laptop-house"></i>
+                <h3>Personalized Online English Instruction</h3>
+                <p>Deliver engaging one-on-one lessons tailored to each learner's goals, proficiency level, learning style, and interests. Experienced in teaching adult learners from CEFR A1 to C2.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-book-open"></i>
+                <h3>Lesson Planning & Curriculum Development</h3>
+                <p>Design customized learning plans and create engaging lesson materials that cater to diverse learners, proficiency levels, learning styles, and individual goals. Develop practical, interactive, and learner-centered resources that promote meaningful communication, critical thinking, and measurable language progress.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-comments"></i>
+                <h3>Conversational English & Communication Skills</h3>
+                <p>Help learners build fluency, pronunciation, vocabulary, and confidence through authentic conversations, role plays, and real-life communication tasks.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-globe-asia"></i>
+                <h3>Cross-Cultural Communication</h3>
+                <p>Experienced in teaching students from different countries and cultural backgrounds, creating an inclusive and encouraging environment where learners feel comfortable expressing themselves.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Student Motivation & Progress Tracking</h3>
+                <p>Provide constructive feedback, set achievable learning goals, and monitor student progress to help learners stay motivated and achieve measurable results.</p>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-tools"></i>
+                <h3>Online Teaching Tools</h3>
+                <p>Proficient in Zoom, Google Workspace, Microsoft Office, Canva, Kahoot, Quizlet, and other digital tools that enhance online learning and student engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience" style="background: var(--accent-color);">
+        <h2 class="section-title">Education & Experience</h2>
+        <p class="section-subtitle">My professional background and qualifications</p>
+        
+        <div class="timeline">
+            <div class="timeline-section">
+                <h3><i class="fas fa-graduation-cap"></i> Education & Training</h3>
+                
+                <div class="timeline-item">
+                    <h4>Bachelor of Science in Hotel and Restaurant Management (BSHRM)</h4>
+                    <div class="institution">University of Baguio</div>
+                    <p>Undergraduate Degree</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>TESOL Certification</h4>
+                    <div class="institution">International Open Academy</div>
+                    <p>Teaching English to Speakers of Other Languages</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Virtual Assistance Masterclass</h4>
+                    <div class="institution">Top Tier</div>
+                    <p>Professional Development</p>
+                </div>
+            </div>
+
+            <div class="timeline-section">
+                <h3><i class="fas fa-briefcase"></i> Professional Experience</h3>
+                
+                <div class="timeline-item">
+                    <h4>Freelance English Tutor</h4>
+                    <div class="institution">Remote</div>
+                    <p>Providing personalized online English instruction to adult learners worldwide</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Online English Tutor</h4>
+                    <div class="institution">Curious World Academy</div>
+                    <p>Delivering engaging online English lessons to diverse students</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Online English Tutor (Full-Time)</h4>
+                    <div class="institution">CWA Hong Kong Shawn Technology Ltd.</div>
+                    <p>Full-time online English instruction and curriculum development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <h2 class="section-title">Start Your English Journey</h2>
+        <p class="section-subtitle">Book your personalized lesson today</p>
+        
+        <div class="booking-info">
+            <p><i class="fas fa-clock"></i> <strong>Availability:</strong></p>
+            <div class="availability">
+                Monday - Friday: 6:00 PM - 4:00 AM (Asia/Manila Time)
+            </div>
+            <p style="margin-top: 1.5rem;">Flexible scheduling with automatic timezone conversion for your convenience</p>
+            <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Book a Trial Class Now</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Ready to improve your English? Let's connect!</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>your.email@example.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+63 XXX XXX XXXX</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Based in Philippines (Asia/Manila Timezone)</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-video"></i>
+                    <span>Online Classes via Zoom, Google Meet, or Skype</span>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Why Choose Me?</h3>
+                    <ul style="color: var(--text-light); line-height: 2;">
+                        <li><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 0.5rem;"></i> 8+ years of teaching experience</li>
+                        <li><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 0.5rem;"></i> TESOL Certified</li>
+                        <li><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 0.5rem;"></i> Personalized lesson plans</li>
+                        <li><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 0.5rem;"></i> Flexible scheduling</li>
+                        <li><i class="fas fa-check" style="color: var(--secondary-color); margin-right: 0.5rem;"></i> Students from A1 to C2 levels</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">Send Me a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="level">Current English Level</label>
+                        <select id="level" name="level">
+                            <option value="">Select your level</option>
+                            <option value="A1">Beginner (A1)</option>
+                            <option value="A2">Elementary (A2)</option>
+                            <option value="B1">Intermediate (B1)</option>
+                            <option value="B2">Upper Intermediate (B2)</option>
+                            <option value="C1">Advanced (C1)</option>
+                            <option value="C2">Proficient (C2)</option>
+                            <option value="unsure">Not sure</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your learning goals..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2026 Your Name - Professional ESL Educator. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Empowering learners through personalized English instruction</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
